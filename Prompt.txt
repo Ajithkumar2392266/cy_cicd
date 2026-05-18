@@ -1,0 +1,131 @@
+Convert my existing Cypress test file into Page Object Model structure.
+
+Current application: https://www.saucedemo.com/
+
+Current test file has direct Cypress selectors and actions inside the test cases.
+Convert this into a clean Cypress POM framework using JavaScript.
+
+Create the following page object files:
+
+1. LoginPage.js
+2. InventoryPage.js
+3. CartPage.js
+4. CheckoutPage.js
+5. CheckoutOverviewPage.js
+6. CheckoutCompletePage.js
+
+Rules:
+- Use CSS selectors.
+- Move all selectors into page object classes.
+- Move all repeated Cypress actions into reusable methods.
+- Keep assertions also inside page object methods where suitable.
+- Each page class should export default new instance of the class.
+- Use clear method names like:
+  - enterUsername()
+  - enterPassword()
+  - clickLogin()
+  - login()
+  - verifyProductsPage()
+  - addBackpackToCart()
+  - addBikeLightToCart()
+  - verifyCartBadge()
+  - openCart()
+  - verifyCartItems()
+  - clickCheckout()
+  - enterCheckoutInfo()
+  - clickContinue()
+  - verifyOverviewPage()
+  - verifySubtotal()
+  - clickFinish()
+  - verifyOrderSuccess()
+  - clickBackHome()
+  - sortByPriceHighToLow()
+  - verifyPricesSortedHighToLow()
+
+Also rewrite the spec file using the created page objects.
+
+The updated spec file should include these test cases:
+1. should successfully log in with a valid standard user
+2. should show an error for a locked-out user
+3. should show an error for invalid credentials
+4. should complete a full purchase flow: login → add items → checkout → finish
+5. should sort products from high-to-low price
+
+Use fixture data from users.json:
+- standardUser
+- lockedUser
+- invalidUser
+- checkoutInfo
+
+Do not hardcode username, password, first name, last name, or postal code in the spec file.
+
+Expected folder structure:
+
+cypress/
+  e2e/
+    saucedemo.cy.js
+  pages/
+    LoginPage.js
+    InventoryPage.js
+    CartPage.js
+    CheckoutPage.js
+    CheckoutOverviewPage.js
+    CheckoutCompletePage.js
+  fixtures/
+    users.json
+
+Generate complete code for:
+- all page object files
+- updated spec file
+
+Keep the code simple, readable, and suitable for Cypress framework practice.
+-----------------------------------------------------
+
+install and configure Mochawesome HTML test report in my current Cypress project.
+
+Please do the following:
+
+1. Install required report packages:
+   - cypress-mochawesome-reporter
+   - mochawesome
+   - mochawesome-merge
+   - mochawesome-report-generator
+
+2. Update my existing cypress.config.js file:
+   - Add reporter: "cypress-mochawesome-reporter"
+   - Configure reportDir as "cypress/reports"
+   - Generate HTML report
+   - Generate JSON report
+   - Enable charts
+   - Enable embedded screenshots
+   - Enable inline assets
+   - Overwrite old report when running again
+
+3. Update cypress/support/e2e.js:
+   - Add import for cypress-mochawesome-reporter/register
+
+4. Update package.json scripts only.
+   Add these npm scripts:
+
+   "cy:open": "cypress open"
+   "cy:run": "cypress run"
+   "test:report": "cypress run"
+   "report:clean": "rimraf cypress/reports"
+
+5. If rimraf is required, include the install command for rimraf also.
+
+6. Provide:
+   - npm install command
+   - updated cypress.config.js code
+   - updated cypress/support/e2e.js code
+   - updated package.json scripts
+   - command to run test report
+   - report output location
+
+Important:
+- Do not rewrite existing test cases.
+- Do not create page object files.
+- Do not create a new Cypress project.
+- Only configure test report in the existing project.
+
+------------------------------------------------------------------------

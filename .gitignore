@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+cypress.env.json
+.env
+.env.local
+.env.*.local
+
+# Reports
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
