@@ -114,7 +114,7 @@ Please do the following:
 
 5. If rimraf is required, include the install command for rimraf also.
 
-6. Provide:
+6. Provide::
    - npm install command
    - updated cypress.config.js code
    - updated cypress/support/e2e.js code
